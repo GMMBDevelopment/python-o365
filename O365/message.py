@@ -702,7 +702,9 @@ class Message(ApiComponent, AttachableMixin, HandleRecipientsMixin):
             data = {self._cc('message'): self.to_api_data()}
             if save_to_sent_folder is False:
                 data[self._cc('saveToSentItems')] = False
-
+        
+        print("url: " + url)
+        print("data: " + data)
         response = self.con.post(url, data=data)
         # response evaluates to false if 4XX or 5XX status codes are returned
         if not response:
