@@ -704,7 +704,9 @@ class Message(ApiComponent, AttachableMixin, HandleRecipientsMixin):
                 data[self._cc('saveToSentItems')] = False
         
         print("url: " + url)
-        print("data: " + data)
+        import json
+        data_s = json.dumps(data)
+        print("data: " + data_s)
         response = self.con.post(url, data=data)
         # response evaluates to false if 4XX or 5XX status codes are returned
         if not response:
