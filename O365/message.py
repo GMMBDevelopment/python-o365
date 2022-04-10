@@ -703,7 +703,7 @@ class Message(ApiComponent, AttachableMixin, HandleRecipientsMixin):
             if save_to_sent_folder is False:
                 data[self._cc('saveToSentItems')] = False
         
-        print("url: " + url)
+        #print("url: " + url)
         import json
         data_s = json.dumps(data)
         print("data: " + data_s)
