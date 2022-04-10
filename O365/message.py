@@ -692,14 +692,18 @@ class Message(ApiComponent, AttachableMixin, HandleRecipientsMixin):
         if self.__is_draft and self.object_id:
             url = self.build_url(
                 self._endpoints.get('send_draft').format(id=self.object_id))
+            print(url)
             if self._track_changes:
                 # there are pending changes to be committed
                 self.save_draft()
             data = None
+            print("Data is None!")
 
         else:
             url = self.build_url(self._endpoints.get('send_mail'))
+            print(url)
             data = {self._cc('message'): self.to_api_data()}
+            print(data)
             if save_to_sent_folder is False:
                 data[self._cc('saveToSentItems')] = False
         
