@@ -743,6 +743,10 @@ class Connection:
                 # Server response with 4XX or 5XX error status codes
 
                 # try to extract the error message:
+                print("HTTPERROR")
+                print("url: "+ url)
+                if 'data' in kwargs:
+                    print(kwargs['data'])
                 try:
                     error = response.json()
                     error_message = error.get('error', {}).get('message', '')
